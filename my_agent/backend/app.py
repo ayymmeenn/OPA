@@ -15,7 +15,9 @@ FRONTEND_BUILD = os.environ.get(
     os.path.join(os.path.dirname(__file__), '..', 'frontend', 'build'),
 )
 
-app = Flask(__name__)
+# static_folder=None so our own route below serves the React build,
+# including files under /static, instead of Flask's default handler.
+app = Flask(__name__, static_folder=None)
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-change-me')
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
