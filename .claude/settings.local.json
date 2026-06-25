@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import flask, flask_cors; print\\('flask ok'\\)\")",
+      "Bash(where py *)",
+      "Bash(py --version)",
+      "Bash(\"C:/Users/a_aym/PycharmProjects/OPA/.venv/Scripts/python.exe\" -c \"import flask, flask_cors, google.generativeai; print\\('deps ok'\\)\")",
+      "Bash(\"C:/Users/a_aym/PycharmProjects/OPA/.venv/Scripts/python.exe\" -m unittest test_app -v)",
+      "Bash(rm -f policies.db)",
+      "Bash(GOOGLE_API_KEY=x \"C:/Users/a_aym/PycharmProjects/OPA/.venv/Scripts/python.exe\" -c \"import app; import sqlite3; db=sqlite3.connect\\('policies.db'\\); db.row_factory=sqlite3.Row; print\\('USERS:'\\); [print\\(' ', r['id'], r['username'], r['role']\\) for r in db.execute\\('SELECT * FROM users'\\)]; print\\('POLICIES \\(joined to owner via FK\\):'\\); [print\\(' ', r['title'], '->', r['created_by']\\) for r in db.execute\\(app.POLICY_SELECT\\)]\")"
+    ]
+  }
+}
