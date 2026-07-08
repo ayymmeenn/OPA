@@ -9,14 +9,13 @@ from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 import google.generativeai as genai
 
-# In production Flask also serves the built React app from this folder.
+
 FRONTEND_BUILD = os.environ.get(
     'FRONTEND_BUILD',
     os.path.join(os.path.dirname(__file__), '..', 'frontend', 'build'),
 )
 
-# static_folder=None so our own route below serves the React build,
-# including files under /static, instead of Flask's default handler.
+
 app = Flask(__name__, static_folder=None)
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-change-me')
 app.config.update(
@@ -30,7 +29,6 @@ genai.configure(api_key=os.environ.get('GOOGLE_API_KEY', ''))
 DB_PATH = os.environ.get('POLICIES_DB', os.path.join(os.path.dirname(__file__), 'policies.db'))
 
 
-# --- Database helpers -------------------------------------------------------
 
 def connect():
     db = sqlite3.connect(DB_PATH)
@@ -154,9 +152,6 @@ def policy_to_dict(row):
     }
 
 
-# --- Auth -------------------------------------------------------------------
-
-# Simple brute-force protection: max failed logins per username in a window.
 LOGIN_WINDOW = 300
 LOGIN_MAX_ATTEMPTS = 5
 failed_logins = defaultdict(list)
@@ -221,8 +216,6 @@ def me():
     return jsonify({'username': session['username'], 'role': session['role']})
 
 
-# --- Generate Rego from natural language ------------------------------------
-
 @app.route('/api/generate', methods=['POST'])
 def generate():
     guard = require_login()
@@ -249,7 +242,6 @@ def generate():
         return jsonify({'error': str(e)}), 500
 
 
-# --- Policy CRUD ------------------------------------------------------------
 
 def validate_policy(d):
     """Return an error message, or None if the data is valid."""
@@ -367,8 +359,6 @@ def delete_policy(pid):
     return jsonify({'ok': True})
 
 
-# --- Admin ------------------------------------------------------------------
-
 @app.route('/api/admin/stats')
 def admin_stats():
     guard = require_login()
@@ -398,8 +388,6 @@ def admin_stats():
 def health():
     return jsonify({'status': 'ok'})
 
-
-# --- Serve the React frontend -----------------------------------------------
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')

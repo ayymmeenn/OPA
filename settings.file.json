@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import flask, flask_cors; print\\('flask ok'\\)\")",
+      "Bash(where py *)",
+      "Bash(py --version)",
+      "Bash(\"C:/Users/a_aym/PycharmProjects/OPA/.venv/Scripts/python.exe\" -c \"import flask, flask_cors, google.generativeai; print\\('deps ok'\\)\")",
+      "Bash(\"C:/Users/a_aym/PycharmProjects/OPA/.venv/Scripts/python.exe\" -m unittest test_app -v)",
+      "Bash(rm -f policies.db)",
+      "Bash(GOOGLE_API_KEY=x \"C:/Users/a_aym/PycharmProjects/OPA/.venv/Scripts/python.exe\" -c \"import app; import sqlite3; db=sqlite3.connect\\('policies.db'\\); db.row_factory=sqlite3.Row; print\\('USERS:'\\); [print\\(' ', r['id'], r['username'], r['role']\\) for r in db.execute\\('SELECT * FROM users'\\)]; print\\('POLICIES \\(joined to owner via FK\\):'\\); [print\\(' ', r['title'], '->', r['created_by']\\) for r in db.execute\\(app.POLICY_SELECT\\)]\")",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git -c user.name=\"A Aymen\" -c user.email=\"a_aymen1@outlook.com\" commit -q -m \"Ignore local editor settings\")",
+      "Bash(npm ls *)",
+      "Bash(node -e \"require\\('docx'\\); console.log\\('docx loadable:', require\\('docx'\\).Document !== undefined\\)\")",
+      "Bash(npm root *)",
+      "Bash(cd \"C:/Users/a_aym/AppData/Local/Temp/claude/C--Users-a-aym-PycharmProjects-OPA/7abbee38-e4d7-4298-ba77-05fe26ff7056/scratchpad\")",
+      "Bash(export NODE_PATH=\"C:/Users/a_aym/AppData/Roaming/npm/node_modules\")",
+      "Bash(node gen.js)",
+      "Bash(python C:/Users/a_aym/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/5083bc3f-203d-4d6d-bcd9-75e2b572e7b4/9bffde73-bc96-461b-aab4-768f229c27ff/skills/docx/scripts/office/validate.py PolicyForge_Report.docx)",
+      "Bash(C:/Users/a_aym/PycharmProjects/OPA/.venv/Scripts/python.exe C:/Users/a_aym/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/5083bc3f-203d-4d6d-bcd9-75e2b572e7b4/9bffde73-bc96-461b-aab4-768f229c27ff/skills/docx/scripts/office/validate.py PolicyForge_Report.docx)",
+      "Bash(\"C:/Users/a_aym/PycharmProjects/OPA/.venv/Scripts/python.exe\" -m pip install -q defusedxml lxml)",
+      "Bash(tail -2)"
+    ]
+  }
+}

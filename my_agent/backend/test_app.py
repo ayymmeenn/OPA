@@ -2,7 +2,6 @@ import os
 import tempfile
 import unittest
 
-# Use a throwaway database and a dummy API key for the tests.
 _fd, _path = tempfile.mkstemp(suffix='.db')
 os.close(_fd)
 os.environ['POLICIES_DB'] = _path

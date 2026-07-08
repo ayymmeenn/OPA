@@ -137,7 +137,6 @@ export default function Dashboard({ user, onLogout }) {
 
   return (
     <div style={s.layout}>
-      {/* Sidebar */}
       <aside style={s.sidebar}>
         <div style={s.sideTop}>
           <div style={s.brand}>
@@ -176,10 +175,8 @@ export default function Dashboard({ user, onLogout }) {
         </div>
       </aside>
 
-      {/* Main content */}
       <main style={s.main}>
 
-        {/* ── EDITOR TAB ─────────────────────────────────── */}
         {tab === 'editor' && (
           <div style={s.content}>
             <div style={s.pageHeader}>
@@ -194,7 +191,6 @@ export default function Dashboard({ user, onLogout }) {
               )}
             </div>
 
-            {/* Examples */}
             {!nl && (
               <div style={s.examples}>
                 <div style={s.exLabel}>Try an example:</div>
@@ -206,7 +202,6 @@ export default function Dashboard({ user, onLogout }) {
               </div>
             )}
 
-            {/* NL input */}
             <div style={s.card}>
               <label style={s.cardLabel}>Policy Description</label>
               <textarea
@@ -239,7 +234,6 @@ export default function Dashboard({ user, onLogout }) {
               </div>
             </div>
 
-            {/* Rego output */}
             {(regoCode || generating) && (
               <div style={s.card}>
                 <div style={s.codeHeader}>
@@ -275,7 +269,6 @@ export default function Dashboard({ user, onLogout }) {
           </div>
         )}
 
-        {/* ── SAVED TAB ─────────────────────────────────── */}
         {tab === 'saved' && (
           <div style={s.content}>
             <div style={s.pageHeader}>
@@ -329,7 +322,6 @@ export default function Dashboard({ user, onLogout }) {
           </div>
         )}
 
-        {/* ── ADMIN TAB ─────────────────────────────────── */}
         {tab === 'admin' && user.role === 'admin' && (
           <div style={s.content}>
             <div style={s.pageHeader}>
