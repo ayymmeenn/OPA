@@ -1,6 +1,4 @@
 .env
-*.db
-backend/policies.db
 node_modules/
 frontend/build/
 __pycache__/
